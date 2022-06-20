@@ -1,0 +1,34 @@
+stages:
+    - build
+    - publish
+
+container-build:
+    image: quay.io/podman/stable
+    stage: build
+    services:
+        - docker:dind
+    before_script:
+        - podman login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    script:
+        - podman build --pull -t $CI_REGISTRY_IMAGE/hugo_build:$CI_COMMIT_BRANCH -f hugo_dockerfile .
+        - podman tag $CI_REGISTRY_IMAGE/hugo_build:$CI_COMMIT_BRANCH $CI_REGISTRY_IMAGE/hugo_build:$CI_COMMIT_SHORT_SHA
+        - podman push $CI_REGISTRY_IMAGE/hugo_build:$CI_COMMIT_BRANCH
+        - podman push $CI_REGISTRY_IMAGE/hugo_build:$CI_COMMIT_SHORT_SHA
+    rules:
+      - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "develop" 
+        changes:
+          - hugo_dockerfile
+        when: on_success
+        allow_failure: true
+
+site_deploy:
+    image: registry.gitlab.com/nkester/aboutme_site/hugo_build:main
+    stage: publish
+    environment:
+      name: test
+      url: https://test.about.nkester.com
+    rules:
+      - if: $CI_COMMIT_BRANCH == "main"
+    script:
+    - hugo
+    - firebase deploy --token "$FIREBASE_TOKEN"

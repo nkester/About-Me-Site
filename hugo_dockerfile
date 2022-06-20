@@ -1,0 +1,26 @@
+FROM docker.io/ubuntu:jammy
+MAINTAINER Neil Kester <kesterne1@gmail.com>
+
+ENV HUGO_VERSION 0.100.2
+ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit
+
+# Update and install base tools
+RUN apt-get update
+RUN apt-get upgrade -y \
+  && apt-get install curl -y \
+  && apt-get install sudo -y
+
+# Install Firebase tools
+RUN curl -sL https://firebase.tools | bash
+
+# Install Hugo
+RUN cd /tmp/ \
+  && curl -LJO https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz \
+  && mkdir /usr/local/hugo \
+  && tar xzf /tmp/${HUGO_BINARY}.tar.gz -C /usr/local/hugo/ \
+  && ln -s /usr/local/hugo/hugo /usr/local/bin/hugo \
+  && rm /tmp/${HUGO_BINARY}.tar.gz
+
+# Install Golang
+RUN cd /tmp/ \
+  && apt-get install golang -y
