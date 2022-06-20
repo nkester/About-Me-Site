@@ -15,7 +15,7 @@ container-build:
         - podman push $CI_REGISTRY_IMAGE/hugo_build:$CI_COMMIT_BRANCH
         - podman push $CI_REGISTRY_IMAGE/hugo_build:$CI_COMMIT_SHORT_SHA
     rules:
-      - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "container_setup" 
+      - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "develop" 
         changes:
           - hugo_dockerfile
         when: on_success
