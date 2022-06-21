@@ -5,10 +5,11 @@ ENV HUGO_VERSION 0.100.2
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit
 
 # Update and install base tools
-RUN apt-get update
-RUN apt-get upgrade -y \
+RUN apt-get update \
+  && apt-get upgrade -y \
   && apt-get install curl -y \
-  && apt-get install sudo -y
+  && apt-get install sudo -y \
+  && apt-get install git -y
 
 # Install Firebase tools
 RUN curl -sL https://firebase.tools | bash
