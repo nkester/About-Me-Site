@@ -21,6 +21,18 @@ container-build:
         when: on_success
         allow_failure: true
 
+site_preview_deploy:
+    image: registry.gitlab.com/nkester/about-me-site/hugo_build:main
+    stage: publish
+    environment:
+      name: test
+      url: https://test.about.nkester.com
+    rules:
+      - if: $CI_COMMIT_BRANCH == "develop"
+    script:
+    - hugo
+    - firebase hosting:channel:deploy develop --token "$FIREBASE_TOKEN" --expires 1h
+
 site_deploy:
     image: registry.gitlab.com/nkester/about-me-site/hugo_build:main
     stage: publish

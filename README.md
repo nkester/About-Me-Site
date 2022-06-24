@@ -2,6 +2,14 @@
 
 This is built using [hugo](https://gohugo.io/getting-started/quick-start/).  
 
+## Preview Channel
+
+Changes to the develop branch deploys a preview of the site that lives for one hour.  
+
+[Preview Site](https://about-me-site-612fa--develop-ykcarn4e.web.app)  
+
+[Reference Documentation](https://firebase.google.com/docs/hosting/manage-hosting-resources?authuser=0&hl=en)
+
 ## Hugo Theme  
 
 I use the `Academic` Hugo Theme that is demoed [here](https://academic-demo.netlify.app/).  
