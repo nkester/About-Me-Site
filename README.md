@@ -6,9 +6,16 @@ This is built using [hugo](https://gohugo.io/getting-started/quick-start/).
 
 Changes to the develop branch deploys a preview of the site that lives for one hour.  
 
-[Preview Site](https://about-me-site-612fa--develop-ykcarn4e.web.app)  
+This is set up in a `review/deploy` GitLab environment. It runs automatically at commit on the `develop` branch or manually through the GitLab UI.  
 
-[Reference Documentation](https://firebase.google.com/docs/hosting/manage-hosting-resources?authuser=0&hl=en)
+Access the GitLab Environments [here](https://gitlab.com/nkester/about-me-site/-/environments)  
+
+In order to extract the Google Firebase Preview Channel URL from the Firebase CLI response I wrote a simple python script named: `get_preview_url.py`.  
+
+### References  
+
+  * [GitLab Dynamic Environment URLs](https://docs.gitlab.com/ee/ci/environments/#example-of-setting-dynamic-environment-urls)  
+  * [Firebase Reference Documentation](https://firebase.google.com/docs/hosting/manage-hosting-resources?authuser=0&hl=en)
 
 ## Hugo Theme  
 
