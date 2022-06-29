@@ -2,6 +2,21 @@
 
 This is built using [hugo](https://gohugo.io/getting-started/quick-start/).  
 
+## Preview Channel
+
+Changes to the develop branch deploys a preview of the site that lives for one hour.  
+
+This is set up in a `review/deploy` GitLab environment. It runs automatically at commit on the `develop` branch or manually through the GitLab UI.  
+
+Access the GitLab Environments [here](https://gitlab.com/nkester/about-me-site/-/environments)  
+
+In order to extract the Google Firebase Preview Channel URL from the Firebase CLI response I wrote a simple python script named: `get_preview_url.py`.  
+
+### References  
+
+  * [GitLab Dynamic Environment URLs](https://docs.gitlab.com/ee/ci/environments/#example-of-setting-dynamic-environment-urls)  
+  * [Firebase Reference Documentation](https://firebase.google.com/docs/hosting/manage-hosting-resources?authuser=0&hl=en)
+
 ## Hugo Theme  
 
 I use the `Academic` Hugo Theme that is demoed [here](https://academic-demo.netlify.app/).  
@@ -27,7 +42,7 @@ The container currenly has a Ubuntu-22.04 base image, the Google Firebase CLI, H
   * I also used the Google Firebase documentation located in their docs [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).  
   * The GitLab docs on the GitLab-CI syntax is helpful, specifically the section on rules located [here](https://docs.gitlab.com/ee/ci/yaml/#rules).  
   * [How to install Golang on Ubuntu-22.04](https://linuxconfig.org/how-to-install-go-on-ubuntu-22-04-jammy-jellyfish-linux)  
-  * [Installing Golang](https://go.dev/doc/install) **I NEED TO IMPLEMENT THIS INSTALL PROCESS**   
+  * [Installing Golang](https://go.dev/doc/install)  
 
 # Build a new Hugo site  
 

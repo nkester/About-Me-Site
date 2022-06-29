@@ -22,3 +22,6 @@ RUN cd /tmp/ \
 # Install Golang
 RUN cd /tmp/ \
   && apt-get install golang -y
+
+# Install python
+RUN apt-get install python3 pip -y

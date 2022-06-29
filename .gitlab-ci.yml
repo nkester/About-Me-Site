@@ -1,8 +1,9 @@
 stages:
     - build
+    - preview
     - publish
 
-container-build:
+container_build:
     image: quay.io/podman/stable
     stage: build
     services:
@@ -20,15 +21,49 @@ container-build:
           - hugo_dockerfile
         when: on_success
         allow_failure: true
+      # Give the option to run the job manually as needed
+      - when: manual
+        allow_failure: true
 
+# This job builds the site when a merge request is accepted on the 'develop' 
+#  branch and deploys it to the project's Google Firebase Preview Channel. 
+#  It retrieves the temporary URL and assigns that to a GitLab Environment.
+site_preview_deploy:
+    image: registry.gitlab.com/nkester/about-me-site/hugo_build:develop
+    stage: preview
+    rules:
+      - if: $CI_COMMIT_BRANCH == "develop"
+        allow_failure: true
+      # Give the option to run the job manually as needed
+      - when: manual
+        allow_failure: true
+    script:
+      - hugo
+      - firebase hosting:channel:deploy develop --token "$FIREBASE_TOKEN" --expires 1h
+      - firebase hosting:channel:list --json --token "$FIREBASE_TOKEN" > channels.txt
+      - DYNAMIC_ENVIRONMENT_URL=$(python3 get_preview_url.py)
+      - echo "DYNAMIC_ENVIRONMENT_URL=$DYNAMIC_ENVIRONMENT_URL" >> deploy.env
+    artifacts:
+      reports:
+        dotenv: deploy.env
+    environment:
+      name: review/$CI_COMMIT_REF_SLUG
+      url: $DYNAMIC_ENVIRONMENT_URL
+    
+# This job executes when a merge request is accepted to the 'main' branch
+#  It builds the site and deploys it to the project's Google Firebase 'deploy'
+#  or live channel.
 site_deploy:
     image: registry.gitlab.com/nkester/about-me-site/hugo_build:main
     stage: publish
     environment:
-      name: test
+      name: production
       url: https://test.about.nkester.com
     rules:
       - if: $CI_COMMIT_BRANCH == "main"
+      # Give the option to run the job manually as needed
+      - when: manual
+        allow_failure: true
     script:
     - hugo
     - firebase deploy --token "$FIREBASE_TOKEN"
