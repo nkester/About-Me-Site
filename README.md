@@ -23,7 +23,7 @@ I use the `Academic` Hugo Theme that is demoed [here](https://academic-demo.netl
 
 Its source files are located [here on GitHub](https://github.com/wowchemy/starter-hugo-academic).
 
-# References  
+### References  
 
   * https://www.freecodecamp.org/news/hugo-firebase-how-to-create-your-own-dynamic-website-for-free-in-minutes-463b4fb7bf5a/  
   * [hugo to firebase with gitlab ci](https://iyadmarzouka.com/post/how-to-deploy-a-hugo-site-to-firebase-using-gitlab-cicd/)  
@@ -34,7 +34,54 @@ This container will serve as my vehicle to build the website from the source fil
 
 This container image is stored within this project's Container Registery and is rebuilt only when the `hugo_dockerfile` changes on the `main` branch.
 
-The container currenly has a Ubuntu-22.04 base image, the Google Firebase CLI, Hugo, and Golang installed. In the near future I will update the base image to be either UBI8 or Alpine to make the resulting container image smaller.
+The container currenly has a Ubuntu-22.04 base image, the Google Firebase CLI, Hugo, and Golang installed. In the near future I will update the base image to be either UBI8 or Alpine to make the resulting container image smaller.  
+
+## Docker File Explained  
+
+The dockerfile that specifies this container image build sequence is named `hugo_dockerfile`.  
+
+It is based on the official Ubuntu 22.04 (Jammy Jellyfish) container image and contains six build steps.  
+
+### Build Step 1 - System  
+
+The base Ubuntu image is minimal so I first start by updating the package repo and upgrading all possible packages. Then I install `curl` and `git` which allows me to install other tools in future build steps.  
+
+### Build Step 2 - Google Firebase CLI  
+
+Navigate to the `/tmp/` folder and use `curl` to download the latest version of Google's Firebase CLI tools from Google.  
+
+### Build Step 3 - Hugo Extended  
+
+Navigate to the `/tmp/` folder and use `curl` to download hugo-extended from github. The **"Academic"** theme requires `hugo extended` rather than base `hugo` to build.  
+
+This download uses the environment variable set in line 4 of the dockerfile: `ENV HUGO_VERSION`. At this time it is version `0.100.2`. `gohugoio` names is binaries in a consistent manner so the docker file builds the version into the binary file name format and saves it as the `HUGO_BINARY` environment variable.  
+
+This `HUGO_BINARY` env is passed to the curl command to download the desired version of hugo.  
+
+The dockerfile then uses `dpkg` to install that hugo binary package.  
+
+### Build Step 4 - Go  
+
+The **"Academic"** theme also requires that Golang (a.k.a Go) is installed. I have not found a requirement for specific or super recent versions so I'll use the version of golang available in the `apt-get` repo.  
+
+In the future I may need to update this to pull a specific version.  
+
+### Build Step 5 - Python  
+
+Install python 3 and pip to support the `get_preview_url.py` script used in the GitLab CI process. Currently I only use base python modules so there is no need to install additional modules.  
+
+### Build Step 6 - Clean Up
+
+In order to keep the container image as small as possible, this step removes everthing that was downloaded to the `/tmp/` directory and clears all downloaded archive files.
+
+### Accessing the Container Image  
+
+The container registry this image is stored in is: `registry.gitlab.com/nkester/about-me-site/hugo_build`.  
+
+Each image is tagged with the git short commit SHA that corresponds to the commit that ran the build pipeline.  
+
+Additionally, I use floating tags so I can always access the most recent container image built on a branch. These floating tags correspond to the branch name. Therefore, the latest container image built on the production branch (`main`) is located at: `registry.gitlab.com/nkester/about-me-site/hugo_build:main`.  
+ 
 
 ## References  
 
@@ -42,7 +89,7 @@ The container currenly has a Ubuntu-22.04 base image, the Google Firebase CLI, H
   * I also used the Google Firebase documentation located in their docs [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).  
   * The GitLab docs on the GitLab-CI syntax is helpful, specifically the section on rules located [here](https://docs.gitlab.com/ee/ci/yaml/#rules).  
   * [How to install Golang on Ubuntu-22.04](https://linuxconfig.org/how-to-install-go-on-ubuntu-22-04-jammy-jellyfish-linux)  
-  * [Installing Golang](https://go.dev/doc/install)  
+  * **Future Work for installing specific versions** [Installing Golang](https://go.dev/doc/install)  
 
 # Build a new Hugo site  
 
