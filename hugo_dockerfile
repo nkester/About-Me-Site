@@ -8,11 +8,11 @@ ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_Linux-64bit
 RUN apt-get update \
   && apt-get upgrade -y \
   && apt-get install curl -y \
-  && apt-get install sudo -y \
   && apt-get install git -y
 
 # Install Firebase tools
-RUN curl -sL https://firebase.tools | bash
+RUN cd /tmp/ \
+  && curl -sL https://firebase.tools | bash
 
 # Intall Hugo-extended
 RUN cd /tmp/ \
@@ -20,8 +20,12 @@ RUN cd /tmp/ \
   && dpkg -i ${HUGO_BINARY}.deb
 
 # Install Golang
-RUN cd /tmp/ \
-  && apt-get install golang -y
+RUN apt-get install golang -y
 
 # Install python
 RUN apt-get install python3 pip -y
+
+# Clean up
+RUN rm -rf /tmp/* \
+  && apt-get autoclean \
+  && apt-get clean
