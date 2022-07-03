@@ -89,7 +89,7 @@ Additionally, I use floating tags so I can always access the most recent contain
   * I also used the Google Firebase documentation located in their docs [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).  
   * The GitLab docs on the GitLab-CI syntax is helpful, specifically the section on rules located [here](https://docs.gitlab.com/ee/ci/yaml/#rules).  
   * [How to install Golang on Ubuntu-22.04](https://linuxconfig.org/how-to-install-go-on-ubuntu-22-04-jammy-jellyfish-linux)  
-  * [Installing Golang](https://go.dev/doc/install)  
+  * **Future Work for installing specific versions** [Installing Golang](https://go.dev/doc/install)  
 
 # Build a new Hugo site  
 
