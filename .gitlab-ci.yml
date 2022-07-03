@@ -63,7 +63,8 @@ site_deploy:
     rules:
       - if: $CI_COMMIT_BRANCH == "main"
       # Give the option to run the job manually as needed
-      - when: manual
+      - if: $CI_COMMIT_BRANCH == "main"
+        when: manual
         allow_failure: true
     script:
     - hugo
