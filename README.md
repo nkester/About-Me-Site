@@ -1,6 +1,26 @@
 # My Website
 
-This is built using [hugo](https://gohugo.io/getting-started/quick-start/).  
+This project serves two purposes for me.  
+
+  * First, it produces an easily accessible and dynamic portfolio, resume and cirruculum vitae (CV) of my work as a leader, data scientist, and technologist. Through this I will link to publically shareable work to demonstrate my capabilities and past experiences.  
+
+  * Second, it provides me further practice and experience integrating GitLab Continuous Integration / Continuous Delivery (CI/CD) actions with software container image creation and management, content delivery to Google Cloud Platform (GCP) resources such as Firebase Hosting, and practice implementing GitOps.  
+
+## The Site  
+
+The foundation of this site comes from the [Hugo](https://gohugo.io/getting-started/quick-start/) `Academic` Theme which I cloned from [GitHub here](https://github.com/wowchemy/starter-hugo-academic). You can see a demo of the base site [here](https://academic-demo.netlify.app/).  
+
+The theme referenced above was meant to deploy into `netlify` automatically through GitHub Actions. This did not align with my previously stated project purpose so I altered the deployment model.  
+
+For that reason I broke this documentation into two primary sections, one explaining the site's content and another describing the mechanisms that enable me to build and deploy the site through GitLab powered GitOps.  
+
+1. TOC
+{:toc}
+
+# Site Content  
+
+# Site Deployment
+
 
 ## Preview Channel
 
@@ -18,10 +38,6 @@ In order to extract the Google Firebase Preview Channel URL from the Firebase CL
   * [Firebase Reference Documentation](https://firebase.google.com/docs/hosting/manage-hosting-resources?authuser=0&hl=en)
 
 ## Hugo Theme  
-
-I use the `Academic` Hugo Theme that is demoed [here](https://academic-demo.netlify.app/).  
-
-Its source files are located [here on GitHub](https://github.com/wowchemy/starter-hugo-academic).
 
 ### References  
 
