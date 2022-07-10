@@ -8,21 +8,24 @@ This project serves two purposes for me.
 
 ## The Site  
 
-The foundation of this site comes from the [Hugo](https://gohugo.io/getting-started/quick-start/) `Academic` Theme which I cloned from [GitHub here](https://github.com/wowchemy/starter-hugo-academic). You can see a demo of the base site [here](https://academic-demo.netlify.app/).  
+The foundation of this site comes from the [Hugo](https://gohugo.io/getting-started/quick-start/) `Academic` Theme which I cloned from the [wowchemy academic GitHub project](https://github.com/wowchemy/starter-hugo-academic). Wowchemy also provides a [demonstration of the base academic site](https://academic-demo.netlify.app/).  
 
 The theme referenced above was meant to deploy into `netlify` automatically through GitHub Actions. This did not align with my previously stated project purpose so I altered the deployment model.  
 
 For that reason I broke this documentation into two primary sections, one explaining the site's content and another describing the mechanisms that enable me to build and deploy the site through GitLab powered GitOps.  
 
-1. TOC
-{:toc}
+Below is a table of contents for items in both sections:  
 
-# Site Content  
+[Site Content](#site-content)  
+  * None  
+[Site Deployment](#site-deployment)  
+  * [Preview Channel](#preview-channel)
 
-# Site Deployment
+## Site Content  
 
+## Site Deployment  
 
-## Preview Channel
+### Preview Channel
 
 Changes to the develop branch deploys a preview of the site that lives for one hour.  
 
