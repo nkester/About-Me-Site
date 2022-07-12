@@ -4,7 +4,7 @@ This project serves two purposes for me.
 
   * First, it produces an easily accessible and dynamic portfolio, resume and cirruculum vitae (CV) of my work as a leader, data scientist, and technologist. Through this I will link to publically shareable work to demonstrate my capabilities and past experiences.  
 
-  * Second, it provides me further practice and experience integrating GitLab Continuous Integration / Continuous Delivery (CI/CD) actions with software container image creation and management, content delivery to Google Cloud Platform (GCP) resources such as Firebase Hosting, and practice implementing GitOps.  
+  * Second, it provides me further practice and experience integrating GitLab Continuous Integration / Continuous Delivery (CI/CD) actions with building and managing software container images, content delivery to Google Cloud Platform (GCP) resources such as Firebase Hosting, and practice implementing GitOps.  
 
 ## The Site  
 
