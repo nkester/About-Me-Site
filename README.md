@@ -24,7 +24,7 @@ Below is a table of contents for items in both sections:
   * [Local Development](#local-development)  
   * [Build a New `Academic` Themed Hugo Site](#build-a-new-academic-themed-hugo-site)  
   * [Connect to Google Firebase](#connect-to-google-firebase)  
-  * Employ GitOps: GitLab CI to Google Firebase
+  * [Employ GitOps: GitLab CI to Google Firebase](#employ-gitops-gitlab-ci-to-google-firebase)  
   * [Enable temporary Firebase Preview Channels](#preview-channel)  
 
 ## Site Content  
@@ -210,39 +210,50 @@ Add a new domain record with your domain registry, request a new `A` record, and
   
   2. Other information on the firebase CLI is [here](https://firebase.google.com/docs/cli#sign-in-test-cli).
 
-### Preview Channel
+### Employ GitOps: GitLab CI to Google Firebase  
 
-Changes to the develop branch deploys a preview of the site that lives for one hour.  
+Implementing Automatic Builds and Deploys to Firebase through Google CI  
 
-This is set up in a `review/deploy` GitLab environment. It runs automatically at commit on the `develop` branch or manually through the GitLab UI.  
+Pre-requisites:  
 
-Access the GitLab Environments [here](https://gitlab.com/nkester/about-me-site/-/environments)  
+  1. Now that we have the components: 1) `FIREBASE_TOKEN` in the GitLab project, 2) Firebase project initialized within the file structure of the GitLab project, 3) A container image that a GitLab Runner can execute to perform our operations, and 4) A domain name record that connects your domain name to the firebase hosting project. I used a subdomain off of my name `nkester.com` domain that I own.  
 
-In order to extract the Google Firebase Preview Channel URL from the Firebase CLI response I wrote a simple python script named: `get_preview_url.py`.  
+  2. As described previously, ensure the `FIREBASE_TOKEN` CI Variable is not "Protected" until you are ready to add this workflow to apply only to protected branches (a `develop` and `main` branch for instance).  
 
-### References  
+#### `.gitlab-ci.yaml`  
 
-  * [GitLab Dynamic Environment URLs](https://docs.gitlab.com/ee/ci/environments/#example-of-setting-dynamic-environment-urls)  
-  * [Firebase Reference Documentation](https://firebase.google.com/docs/hosting/manage-hosting-resources?authuser=0&hl=en)
+This file describes all of the triggers that will initiate the GitLab CI pipelines, how those pipelines are organized, and what each job does.  
 
-## Hugo Theme  
+For this project I have organized the pipeline into three stages: `build`, `preview`, and `publish`.  
 
-### References  
+All jobs in this `yml` are set up as merge triggers so they only execute when a feature branch has a merge request into a protected branch (`main` or `develop`).  
 
-  * https://www.freecodecamp.org/news/hugo-firebase-how-to-create-your-own-dynamic-website-for-free-in-minutes-463b4fb7bf5a/  
-  * [hugo to firebase with gitlab ci](https://iyadmarzouka.com/post/how-to-deploy-a-hugo-site-to-firebase-using-gitlab-cicd/)  
+**`build`**  
 
-# Build a new Hugo site  
+The `build` stage only has one job and is meant to build new container images, tag them appropriately, and store them in the project's container image registry.  
 
+To minimize un-needed build events, this job only triggers when the commit branch is either `main` or `develop` AND the `hugo_dockerfile` file has changed.  
 
-
-
-
-# Implementing Automatic Builds and Deploys to Firebase through Google CI  
-
-Now that we have the components: 1) `FIREBASE_TOKEN` in the GitLab project, 2) Firebase project initialized within the file structure of the GitLab project, 3) A container image that a GitLab Runner can execute to perform our operations, and 4) A domain name record that connects your domain name to the firebase hosting project. I used a subdomain off of my name `nkester.com` domain that I own.  
+I have, however, retained the ability to execute this job manually if needed. This is useful when I want to pull in recent patches to the base container but the original dockerfile did not change. 
 
 Ensure the `environment.url` argument of the `.gitlab-ci.yml` is accurate. Also, ensure the `only` stanza indicates the correct branch you want this to execute on.  
 
-As described previously, ensure the `FIREBASE_TOKEN` CI Variable is not "Protected" until you are ready to add this workflow to apply only to protected branches (a `develop` and `main` branch for instance). 
-  
+**`preview`**  
+
+The `preview` stage has one job and is meant to build the hugo site from the `develop` branch and deploy it to a temporary Google Firebase Hosting Preview Channel.  
+
+After the job builds the hugo site, it pushes it to the `develop` Google Firebase channel with a specification that the resulting dynamic URL only lives for 1 hour.  
+
+The job then uses the `get_preview_url.py` script I made to parse the json response from the firebase_cli to extract the dynamic preview url. Finally, it applies this URL to the `review/develop` GitLab environment that is accessible from the project's GitLab UI.  
+
+Access the GitLab Environments [here](https://gitlab.com/nkester/about-me-site/-/environments)
+
+**`publish`**  
+
+The `publish` stage has one job and is meant to build the hugo site from the `main` branch and deploy it to production Google Firebase channel.  
+
+#### References  
+
+  * [GitLab Dynamic Environment URLs](https://docs.gitlab.com/ee/ci/environments/#example-of-setting-dynamic-environment-urls)  
+  * [Firebase Reference Documentation](https://firebase.google.com/docs/hosting/manage-hosting-resources?authuser=0&hl=en)    * https://www.freecodecamp.org/news/hugo-firebase-how-to-create-your-own-dynamic-website-for-free-in-minutes-463b4fb7bf5a/  
+  * [hugo to firebase with gitlab ci](https://iyadmarzouka.com/post/how-to-deploy-a-hugo-site-to-firebase-using-gitlab-cicd/)  
