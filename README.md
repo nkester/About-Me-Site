@@ -22,8 +22,8 @@ Below is a table of contents for items in both sections:
 [Site Deployment](#site-deployment)  
   * [Conatiner Image](#container-image)  
   * [Local Development](#local-development)  
-  * Build a new `Academic` Themed Hugo site  
-  * Connect to Google Firebase  
+  * [Build a New `Academic` Themed Hugo Site](#build-a-new-academic-themed-hugo-site)  
+  * [Connect to Google Firebase](#connect-to-google-firebase)  
   * Employ GitOps: GitLab CI to Google Firebase
   * [Enable temporary Firebase Preview Channels](#preview-channel)  
 
@@ -109,6 +109,107 @@ The `--bind` flag allows to see the served site outside of the container at the 
 
 I can then navigate to `localhost:1313` on my local computer to see the site served from my local VS Code development container.  
 
+### Build a New `Academic` Themed Hugo Site  
+
+While I tried to add the theme as a hugo module, I ran into issues removing the examples provided in the demo site. I'll include those steps at the end of this section so I can try again later but in the mean time I went with the approach of cloning the template project.  
+
+#### 1. Clone the template project  
+
+First, fork the theme's GitHub project or import it into a GitLab project. Do not enable mirroring.  
+
+Test the site builds properly with `hugo serve --bind "0.0.0.0"`. This command allows us to serve the website from within my VSCode container exposed on port 1313.  
+
+#### 2. Update the `config.yaml` file  
+
+The [hugo configuration documentation](https://gohugo.io/getting-started/configuration/) does a good job describing how to organize configuration files. **I have not yet implemented different configurations for `development` and `production` environments.**  
+
+Navigate to `./config/_default/` to find the configuration files. This is where we can change our front matter and other parameters.  
+
+#### 3. Get to Work  
+
+This is the starting point from which I can now begin updating content, adding my own widgets, and customizing the site.
+
+#### XX. Using Hugo Modules for the Theme  
+
+Using Hugo modules allows us to loosely couple my project with the work accomplished by the theme's developers. This approach worked beautifully except for the fact that the `Academic` theme module includes all of the content provided for the demo site. Because those files are packaged up and I found no parameter to pass for ignore them, I was unable to edit or delete that content.  
+
+**Step 1. Make your Project a Hugo Module**  
+
+`hugo mod init <project name>`  
+
+**Step 2. Specify Modules to Import**  
+
+In your `config.yaml` file, add a stanza describing which hugo modules to import into your new module.  
+
+That stanza should look like this:  
+
+```yaml
+module:
+  imports:
+    # Project Theme
+    - path: "github.com/wowchemy/starter-hugo-academic"
+```  
+
+As described in the `Using Modules` article listed below, I've provided a comment on what that module import is for.  
+
+**Step 3. Pull in that Module Dependency**  
+
+Now that we've added the theme module to out `config.yaml` we need to pull it in with:  
+
+`hugo mod get`  
+
+  > **Note:** I got an error when I did this regarding some security issues. This is a known issue that is addressed in my second reference in this section. Deal with it by adding the following stanza to your `config.yaml` file.  
+
+```yaml
+security:
+  funcs:
+    getenv:  
+      - "^HUGO_"
+      - "^WC_"
+```
+**Step 4. Serve the Website**  
+
+Now we can serve the website as normal with `hugo serve --bind "0.0.0.0"`  
+
+The "vendor" command allows you to see what the contents of your site look like. Executing `hugo mod vendor` pulls in all of the files in the imported modules and places them in the `_vendor` directory. We can delete this directory when we are done looking at it.  
+
+#### References:  
+
+  * **VERY USEFUL** [Using Modules](https://www.hugofordevelopers.com/articles/master-hugo-modules-managing-themes-as-modules/)  
+  * Fix for security issue when building [GitHub](https://github.com/wowchemy/wowchemy-hugo-themes/discussions/2559#discussioncomment-1840591)  
+
+
+### Connect to Google Firebase  
+
+  > This assumes you have already created a Firebase CLI CI Token and stored it in the project's GitLab CI Variables section under the variable name `FIREBASE_TOKEN`. Do this by following the steps in Reference 1 of this section.  
+
+Execute these steps in the VS Code container I ran in the previous step or your own development environment.  
+
+#### Initializing the firebase project  
+
+navigate to the site's project directory and execute the terminal command: `firebase init --token <your token>`. This approach uses the CI token we generated previously. I've used this option so that I don't need to authenticate with google every time.  
+
+When you run this command, it will ask several questions. These were my reponses: 
+  1. Creating a hosting service only  
+  2. Use an existing project (I had already create a firebase project through the Firebase UI).  
+    a. This then gave me the option of which existing project I wanted to use.  
+  3. Firebase asks what directory to use as your public directory. Hugo has already created a directory for us named `public` so we will use that. Respond to this question with `public`.  
+    a. The workflow will look like this: You add files to your hugo template in this GitLab project, hugo will then build those files into a static site and place those artifacts (results of the build process) in the `public` folder. Firebase will then deploy the contents of the `public` folder to Google's servers to be hosted.  
+  4. Firebase asks if I want to configure this as a single-page app. **I don't know but at this time I selected `N`**.  
+  5. I am using GitLab instead of GitHub so I selected `N` when asked to set up automatic build and deploys with GitHub.  
+
+#### Connect Your Firebase Project to your Domain  
+
+In order to do this, first get the information from your Firebase Project required to set up an `A` name in your domain record. This should be an option you can select from the Firebase GUI and should be under the `Easy` setup option, not the `Advanced`. It is simply the IPv4 address to your Firebase project hosted app.  
+
+Add a new domain record with your domain registry, request a new `A` record, and provide that IPv4. It may take some time to update but that should be all you need for a basic `http` site. 
+
+#### References  
+
+  1. This reference from the Google Docs walks you through setting up the Firebase CLI in a headless continuous integration (CI) environment [here](https://firebase.google.com/docs/cli#cli-ci-systems).  
+  
+  2. Other information on the firebase CLI is [here](https://firebase.google.com/docs/cli#sign-in-test-cli).
+
 ### Preview Channel
 
 Changes to the develop branch deploys a preview of the site that lives for one hour.  
@@ -133,104 +234,9 @@ In order to extract the Google Firebase Preview Channel URL from the Firebase CL
 
 # Build a new Hugo site  
 
-While I tried to add the theme as a hugo module, I ran into issues removing the examples provided in the demo site. I'll include those steps at the end of this section so I can try again later but in the mean time I went with the approach of cloning the template project.  
-
-## 1. Clone the template project  
-
-We can do this a few ways. The first is to fork the theme's GitHub project or import it into a GitLab project and then break the fork relationship or do not enable mirroring. This probably makes the most sense but I didn't want to lose the commits I had already made to this project.  
-
-Another option, the one I used in this case, is to clone the theme's GitHub project to another folder and copy over the files required to run the site.  
-
-Test the site builds properly with `hugo serve --bind "0.0.0.0"`. This command allows us to serve the website from within my VSCode container exposed on port 1313.  
-
-## 2. Update the `config.yaml` file  
-
-The hugo configuration documentation [here](https://gohugo.io/getting-started/configuration/) goes a good job describing how to organize configuration files. **I have not yet implemented different configurations for `development` and `production` environments.**  
-
-Navigate to `./config/_default/` to find the configuration files. This is where we can change our front matter and other parameters.  
-
-
-## XX. Using Hugo Modules for the Theme  
-
-Using Hugo modules allows us to loosely couple my project with the work accomplished by the theme's developers. This approach worked beautifully except for the fact that the `Academic` theme module includes all of the content provided for the demo site. Because those files are packaged up and I found no parameter to pass for ignore them, I was unable to edit or delete that content.  
-
-### Step 1. Make your Project a Hugo Module  
-
-`hugo mod init <project name>`  
-
-### Step 2. Specify Modules to Import  
-
-In your `config.yaml` file, add a stanza describing which hugo modules to import into your new module.  
-
-That stanza should look like this:  
-
-```yaml
-module:
-  imports:
-    # Project Theme
-    - path: "github.com/wowchemy/starter-hugo-academic"
-```  
-
-As described in the `Using Modules` article listed below, I've provided a comment on what that module import is for.  
-
-### Step 3. Pull in that Module Dependency  
-
-Now that we've added the theme module to out `config.yaml` we need to pull it in with:  
-
-`hugo mod get`  
-
-  > **Note:** I got an error when I did this regarding some security issues. This is a known issue that is addressed in my second reference in this section. Deal with it by adding the following stanza to your `config.yaml` file.  
-
-```yaml
-security:
-  funcs:
-    getenv:  
-      - "^HUGO_"
-      - "^WC_"
-```
-### Step 4. Serve the Website  
-
-Now we can serve the website as normal with `hugo serve --bind "0.0.0.0"`  
-
-The "vendor" command allows you to see what the contents of your site look like. Executing `hugo mod vendor` pulls in all of the files in the imported modules and places them in the `_vendor` directory. We can delete this directory when we are done looking at it.  
-
-### References:  
-
-  * **VERY USEFUL** [Using Modules](https://www.hugofordevelopers.com/articles/master-hugo-modules-managing-themes-as-modules/)  
-  * Fix for security issue when building [GitHub](https://github.com/wowchemy/wowchemy-hugo-themes/discussions/2559#discussioncomment-1840591)  
 
 
 
-# Connect to Google Firebase  
-
-  > This assumes you have already created a Firebase CLI CI Token and stored it in the project's GitLab CI Variables section under the variable name `FIREBASE_TOKEN`. Do this by following the steps in Reference 1.  
-
-Execute these steps in the VS Code container I ran in the previous step or your own development environment.  
-
-## Initializing the firebase project  
-
-navigate to the site's project directory and execute the terminal command: `firebase init --token <your token>`. This approach uses the CI token we generated previously. I've used this option so that I don't need to authenticate with google every time.  
-
-When you run this command, it will ask several questions. These were my reponses: 
-  1. Creating a hosting service only  
-  2. Use an existing project (I had already create a firebase project through the Firebase UI).  
-    a. This then gave me the option of which existing project I wanted to use.  
-  3. Firebase asks what directory to use as your public directory. Hugo has already created a directory for us named `public` so we will use that. Respond to this question with `public`.  
-    a. The workflow will look like this: You add files to your hugo template in this GitLab project, hugo will then build those files into a static site and place those artifacts (results of the build process) in the `public` folder. Firebase will then deploy the contents of the `public` folder to Google's servers to be hosted.  
-  4. Firebase asks if I want to configure this as a single-page app. **I don't know but at this time I selected `N`**.  
-  5. I am using GitLab instead of GitHub so I selected `N` when asked to set up automatic build and deploys with GitHub.  
-
-## Connect Your Firebase Project to your Domain  
-
-In order to do this, first get the information from your Firebase Project required to set up an `A` name in your domain record. This should be an option you can select from the Firebase GUI and should be under the `Easy` setup option, not the `Advanced`. It is simply the IPv4 address to your Firebase project hosted app.  
-
-Add a new domain record with your domain registry, request a new `A` record, and provide that IPv4. It may take some time to update but that should be all you need for a basic `http` site. 
-
-## References  
-
-  1. This reference from the Google Docs walks you through setting up the Firebase CLI in a headless continuous integration (CI) environment [here](https://firebase.google.com/docs/cli#cli-ci-systems).  
-  
-  2. Other information on the firebase CLI is [here](https://firebase.google.com/docs/cli#sign-in-test-cli).
 
 # Implementing Automatic Builds and Deploys to Firebase through Google CI  
 
