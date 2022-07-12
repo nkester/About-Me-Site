@@ -20,8 +20,12 @@ Below is a table of contents for items in both sections:
   * None  
 
 [Site Deployment](#site-deployment)  
-  * [Conatiner Image](#container-image)
-  * [Preview Channel](#preview-channel)  
+  * [Conatiner Image](#container-image)  
+  * [Local Development](#local-development)  
+  * Build a new `Academic` Themed Hugo site  
+  * Connect to Google Firebase  
+  * Employ GitOps: GitLab CI to Google Firebase
+  * [Enable temporary Firebase Preview Channels](#preview-channel)  
 
 ## Site Content  
 
@@ -51,7 +55,7 @@ Navigate to the `/tmp/` folder and use `curl` to download the latest version of 
 
 **Build Step 3 - Hugo Extended**  
 
-Navigate to the `/tmp/` folder and use `curl` to download hugo-extended from github. The **"Academic"** theme requires `hugo extended` rather than base `hugo` to build.  
+Navigate to the `/tmp/` folder and use `curl` to download hugo-extended from github. The `Academic` theme requires `hugo extended` rather than base `hugo` to build.  
 
 This download uses the environment variable set in line 4 of the dockerfile: `ENV HUGO_VERSION`. At this time it is version `0.100.2`. `gohugoio` names is binaries in a consistent manner so the docker file builds the version into the binary file name format and saves it as the `HUGO_BINARY` environment variable.  
 
@@ -61,7 +65,7 @@ The dockerfile then uses `dpkg` to install that hugo binary package.
 
 **Build Step 4 - Go**  
 
-The **"Academic"** theme also requires that Golang (a.k.a Go) is installed. I have not found a requirement for specific or super recent versions so I'll use the version of golang available in the `apt-get` repo.  
+The `Academic` theme also requires that Golang (a.k.a Go) is installed. I have not found a requirement for specific or super recent versions so I'll use the version of golang available in the `apt-get` repo.  
 
 In the future I may need to update this to pull a specific version.  
 
@@ -81,15 +85,29 @@ Each image is tagged with the git short commit SHA that corresponds to the commi
 
 Additionally, I use floating tags so I can always access the most recent container image built on a branch. These floating tags correspond to the branch name. Therefore, the latest container image built on the production branch (`main`) is located at: `registry.gitlab.com/nkester/about-me-site/hugo_build:main`.  
  
-
 #### References  
 
-  * As a guide I used the container image created by [marzouka here](https://github.com/marzouka/docker-hugo-firebase/blob/master/Dockerfile).  
-  * I also used the Google Firebase documentation located in their docs [here](https://firebase.google.com/docs/cli#install_the_firebase_cli).  
-  * The GitLab docs on the GitLab-CI syntax is helpful, specifically the section on rules located [here](https://docs.gitlab.com/ee/ci/yaml/#rules).  
+  * As a guide I used [marzouka's container image](https://github.com/marzouka/docker-hugo-firebase/blob/master/Dockerfile) stored in GitHub.  
+  * I also used the [Google Firebase documentation](https://firebase.google.com/docs/cli#install_the_firebase_cli) to install and use the firebase cli.  
+  * The GitLab docs on the GitLab-CI syntax is helpful, [specifically the section on rules](https://docs.gitlab.com/ee/ci/yaml/#rules).  
   * [How to install Golang on Ubuntu-22.04](https://linuxconfig.org/how-to-install-go-on-ubuntu-22-04-jammy-jellyfish-linux)  
   * **Future Work for installing specific versions** [Installing Golang](https://go.dev/doc/install)  
 
+### Local Development  
+
+I used the VSCode container I normally develop in for this purpose as well. In order to serve the website locally, however, we need to expose additional ports when the container starts. I used the following `podman` command for this.  
+
+` podman run --rm -d -p 8083:8443 -p 1313:1313 -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -e PASSWORD=mypass -e SUDO_PASSWORD=ennser83 -v neil-work:/config --name hugo registry.gitlab.com/nkester-personal-cloud/containers/linuxserver-vscode/temp:latest`  
+
+I then ran the same commands in the VSCode terminal as I have in the `hugo_dockerfile` in order to install `hugo` and `golang`.  
+
+#### Serve the New Site Locally 
+
+`hugo server --bind "0.0.0.0"` 
+
+The `--bind` flag allows to see the served site outside of the container at the default `1313` port.  
+
+I can then navigate to `localhost:1313` on my local computer to see the site served from my local VS Code development container.  
 
 ### Preview Channel
 
@@ -112,9 +130,6 @@ In order to extract the Google Firebase Preview Channel URL from the Firebase CL
 
   * https://www.freecodecamp.org/news/hugo-firebase-how-to-create-your-own-dynamic-website-for-free-in-minutes-463b4fb7bf5a/  
   * [hugo to firebase with gitlab ci](https://iyadmarzouka.com/post/how-to-deploy-a-hugo-site-to-firebase-using-gitlab-cicd/)  
-
-# Hugo Container Build  
-
 
 # Build a new Hugo site  
 
@@ -184,19 +199,7 @@ The "vendor" command allows you to see what the contents of your site look like.
   * **VERY USEFUL** [Using Modules](https://www.hugofordevelopers.com/articles/master-hugo-modules-managing-themes-as-modules/)  
   * Fix for security issue when building [GitHub](https://github.com/wowchemy/wowchemy-hugo-themes/discussions/2559#discussioncomment-1840591)  
 
-# Local development (not headless)  
 
-I used the VSCode container I normally develop in for this purpose as well. In order to serve the website locally, however, we need to expose additional ports when the container starts. I used the following `podman` command for this.  
-
-` podman run --rm -d -p 8083:8443 -p 1313:1313 -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -e PASSWORD=mypass -e SUDO_PASSWORD=ennser83 -v neil-work:/config --name hugo registry.gitlab.com/nkester-personal-cloud/containers/linuxserver-vscode/temp:latest`  
-
-I then ran the same commands in the VSCode terminal as I have in the `hugo_dockerfile` in order to install `hugo` and `golang`.  
-
-## Serve the new site  
-
-`hugo server --bind "0.0.0.0"` 
-
-The `--bind` flag allows to see the served site outside of the container at the default `1313` port.
 
 # Connect to Google Firebase  
 
