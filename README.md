@@ -220,7 +220,7 @@ Pre-requisites:
 
   2. As described previously, ensure the `FIREBASE_TOKEN` CI Variable is not "Protected" until you are ready to add this workflow to apply only to protected branches (a `develop` and `main` branch for instance).  
 
-#### `.gitlab-ci.yaml`  
+#### GitLab CI `.gitlab-ci.yaml` File  
 
 This file describes all of the triggers that will initiate the GitLab CI pipelines, how those pipelines are organized, and what each job does.  
 
