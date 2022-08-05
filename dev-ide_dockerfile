@@ -1,0 +1,30 @@
+FROM registry.gitlab.com/nkester-personal-cloud/containers/linuxserver-vscode/temp:latest
+MAINTAINER Neil Kester <kesterne1@gmail.com>
+
+ENV HUGO_VERSION 0.100.2
+ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_Linux-64bit
+
+# Update and install base tools
+RUN apt-get update \
+  && apt-get upgrade -y \
+  && apt-get install curl git sudo -y
+
+# Install Firebase tools
+RUN cd /tmp/ \
+  && curl -sL https://firebase.tools | bash
+
+# Intall Hugo-extended
+RUN cd /tmp/ \
+  && curl -LJO https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.deb \
+  && dpkg -i ${HUGO_BINARY}.deb
+
+# Install Golang
+RUN apt-get install golang -y
+
+# Install python
+RUN apt-get install python3 pip -y
+
+# Clean up
+RUN rm -rf /tmp/* \
+  && apt-get autoclean \
+  && apt-get clean
