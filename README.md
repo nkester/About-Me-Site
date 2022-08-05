@@ -95,11 +95,15 @@ Additionally, I use floating tags so I can always access the most recent contain
 
 ### Local Development  
 
-I used the VSCode container I normally develop in for this purpose as well. In order to serve the website locally, however, we need to expose additional ports when the container starts. I used the following `podman` command for this.  
+I used the VSCode container I normally develop in for this purpose as well. In order to serve the website locally, however, we need to expose additional ports when the container starts.  
 
-` podman run --rm -d -p 8083:8443 -p 1313:1313 -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -e PASSWORD=mypass -e SUDO_PASSWORD=ennser83 -v neil-work:/config --name hugo registry.gitlab.com/nkester-personal-cloud/containers/linuxserver-vscode/temp:latest`  
+My base VS Code container image does not include the Google firebase, Hugo, and GoLang dependencies required to develop this site. To support local development I've extended my base VS Code container image using the `dev-ide_dockerfile`. This is simply the same dockerfile specifications as is used to build and deploy the site but I use my VS Code container as the base.  
 
-I then ran the same commands in the VSCode terminal as I have in the `hugo_dockerfile` in order to install `hugo` and `golang`.  
+Additionally, I save container image to this project's container registry through the `.gitlab-ci.yaml` specification to the `registry.gitlab.com/nkester/about-me-site/dev_ide` container registry. 
+
+Run this container image with the additional ports exposed with the following `podman` command.  
+
+` podman run --rm -d -p 8083:8443 -p 1313:1313 -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -e PASSWORD=mypass -e SUDO_PASSWORD=mypass -v neil-work:/config --name hugo registry.gitlab.com/nkester/about-me-site/dev_ide:develop`  
 
 #### Serve the New Site Locally 
 
