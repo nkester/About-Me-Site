@@ -81,7 +81,7 @@ site_deploy:
     stage: publish
     environment:
       name: production
-      url: https://test.about.nkester.com
+      url: https://about.nkester.com
     rules:
       - if: $CI_COMMIT_BRANCH == "main"
       # Give the option to run the job manually as needed

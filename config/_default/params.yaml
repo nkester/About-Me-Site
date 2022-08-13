@@ -43,7 +43,9 @@ header:
 
 footer:
   copyright:
-    notice: '© {year} Neil Kester. This work is licensed under {license}'
+    notice: |
+     <p> © {year} Neil Kester. This work is licensed under {license}. </p>
+     <p> Version 1.0, Published 8/13/2022 </p>
     license:
       enable: true
       allow_derivatives: false
