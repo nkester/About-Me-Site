@@ -4,6 +4,7 @@ widget: contact
 
 # This file represents a page section.
 headless: true
+active: false
 
 # Order that this section appears on the page.
 weight: 130
@@ -16,13 +17,13 @@ content:
   autolink: true
 
   # Email form provider
-  form:
-    provider: netlify
-    formspree:
-      id:
-    netlify:
+#  form:
+#    provider: netlify
+#    formspree:
+#      id:
+#    netlify:
       # Enable CAPTCHA challenge to reduce spam?
-      captcha: false
+#      captcha: false
 
   # Contact details (edit or remove options as required)
   email: test@example.org
