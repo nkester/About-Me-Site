@@ -14,7 +14,7 @@ organizations:
     url: https://www.army.mil/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: My research interests include value focused decision support, machine intelligence to human decision making, and analytic modeling and simulation..
 
 # Interests to show in About widget
 interests:
@@ -61,7 +61,7 @@ social:
     link: https://www.linkedin.com/in/neilkester
   - icon: cv
     icon_pack: ai
-    link: uploads/resume.pdf
+    link: uploads/cv.pdf
   - icon: flickr
     icon_pack: fab
     link: https://www.flickr.com/people/105429276@N05/
