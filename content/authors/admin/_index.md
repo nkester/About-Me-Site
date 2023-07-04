@@ -73,8 +73,18 @@ email: 'neilkester@yahoo.com'
 highlight_name: true
 ---
 
-Neil Kester is a proven leader of both tactical and analytic teams confronted with challenging environments and problem sets. Dedicated to building, mentoring, and inspiring teams to grow professionally and personally into agile problem solvers. An experienced operations researcher, skilled in applying data science techniques and traditional analytic methods.  
+**What defines my professional life, what is my professional "why":** I strive to bring clarity to problems and provide actionable approaches to help our leaders make informed decisions. 
+  - The context: Our national security, local government, and business leaders face increasingly complex and complicated problems. These are frustrated by unclear or unintuitive solutions. I strive to help them make sense of this environment to better themselves, their constituents (and customers) and society.
+  
+**My How:** Through self work and leading cross functional teams, I apply the following methods and techniques:  
+  - Remain ruthlessly focused on providing value to the customer or decision maker. Novel solutions only matter if they are usefull and valuable to the user.  
+  - Ask pointed questions to help myself, my team, and the decision maker develop and understand the problem.
+  - Apply Disciplined Agile practices to guide the problem solving process and deliver value.
+  - Acknowledge the things we don't or can not know, and account for them in our analysis.  
+  - Simplicity and explainability always trump complex and convoluted. 
+  - Apply Operations Research and Systems Analysis techiques that span the spectrum from Operational Assessments, Systems Engineering, Economics, and Data Science.
+  
 
-Excels at achieving desired effects with minimal guidance and oversight in environments that demand self-motivated leadership.
+I excel at achieving desired effects with minimal guidance and oversight in environments that demand self-motivated leadership.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
