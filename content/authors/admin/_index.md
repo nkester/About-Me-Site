@@ -65,7 +65,7 @@ social:
   - icon: flickr
     icon_pack: fab
     link: https://www.flickr.com/people/105429276@N05/
-  - icon: adobe_portfolio
+  - icon: adobe-portfolio
     icon_pack: custom
     link: https://photoportfolio.nkester.com/
 
