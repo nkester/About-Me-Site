@@ -47,8 +47,8 @@ social:
 #  - icon: twitter
 #    icon_pack: fab
 #    link: https://twitter.com/GeorgeCushen
-  - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
-    icon_pack: fas
+  - icon: google-scholar
+    icon_pack: ai
     link: https://scholar.google.com/citations?user=b6EsVyQAAAAJ&hl=en&oi=ao
   - icon: github
     icon_pack: fab
@@ -64,9 +64,9 @@ social:
     link: uploads/cv.pdf
   - icon: flickr
     icon_pack: fab
-    link: https://www.flickr.com/people/105429276@N05/
-  - icon: adobe-portfolio
-    icon_pack: custom
+    link: https://www.flickr.com/people/105429276@N05/    
+  - icon: images
+    icon_pack: fas
     link: https://photoportfolio.nkester.com/
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
@@ -77,7 +77,7 @@ highlight_name: true
 ---
 
 **What defines my professional life, what is my professional "why":** I strive to bring clarity to problems and provide actionable approaches to help our leaders make informed decisions. 
-  - The context: Our national security, local government, and business leaders face increasingly complex and complicated problems. These are frustrated by unclear or unintuitive solutions. I strive to help them make sense of this environment to better themselves, their constituents (and customers) and society.
+  - The context: Our national security, local government, and business leaders face increasingly complex and complicated problems. These are frustrated by unclear or unintuitive solutions. I strive to help them make sense of this environment to better themselves, their constituents (and customers), and society.
   
 **My How:** Through self work and leading cross functional teams, I apply the following methods and techniques:  
   - Remain ruthlessly focused on providing value to the customer or decision maker. Novel solutions only matter if they are usefull and valuable to the user.  
