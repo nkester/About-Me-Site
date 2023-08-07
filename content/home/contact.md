@@ -4,13 +4,13 @@ widget: contact
 
 # This file represents a page section.
 headless: true
-active: false
+active: true
 
 # Order that this section appears on the page.
 weight: 130
 
 title: Contact
-subtitle:
+subtitle: 
 
 content:
   # Automatically link email and phone or display as text?
@@ -26,33 +26,33 @@ content:
 #      captcha: false
 
   # Contact details (edit or remove options as required)
-  email: test@example.org
-  phone: 888 888 88 88
+  email: neilkester@yahoo.com
   address:
-    street: 450 Serra Mall
-    city: Stanford
-    region: CA
-    postcode: '94305'
-    country: United States
-    country_code: US
+    city: Vicenza
+    region: PD
+    postcode: '35010'
+    country: Italy
+    country_code: IT
   coordinates:
-    latitude: '37.4275'
-    longitude: '-122.1697'
-  directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
-  office_hours:
-    - 'Monday 10:00 to 13:00'
-    - 'Wednesday 09:00 to 10:00'
-  appointment_url: 'https://calendly.com'
+    latitude: '45.54672'
+    longitude: '11.5475'
+#  directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
+#  office_hours:
+#    - 'Monday 10:00 to 13:00'
+#    - 'Wednesday 09:00 to 10:00'
+  #appointment_url: 'https://calendly.com'
   contact_links:
-    - icon: twitter
-      icon_pack: fab
-      name: DM Me
-      link: 'https://twitter.com/Twitter'
-    - icon: video
+    - icon: briefcase
       icon_pack: fas
-      name: Zoom Me
-      link: 'https://zoom.com'
+      name: Work Email
+      link: mailto:neil.e.kester.mil@army.mil
+    - icon: address-card
+      icon_pack: fas
+      name: Download my vCard
+      link: 'uploads/neil.vcf'
 
 design:
-  columns: '2'
+  columns: '1'
 ---
+
+{{< icon name="download" pack="fas" >}}Click to download my {{< staticref "uploads/neil.vcf" "newtab" >}}virtual contact card{{< /staticref >}}
