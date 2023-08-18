@@ -1,10 +1,18 @@
 BEGIN:VCARD
-VERSION:2.1
-N:Kester;Neil
-FN:Neil Kester
+VERSION:4.0
+N:Kester;Neil;Mr.;PMP
+FN:Mr. Neil Kester\, PMP
+NICKNAME:Neil
+PHOTO:https://www.about.nkester.com/uploads/vcard-photo.jpeg
+GENDER:M
 ORG:U.S. Army
 TITLE:Senior Operations Research / Systems Analyst
-EMAIL;PREF;INTERNET:neilkester@yahoo.com
+URL:https://about.nkester.com
+TEL;VALUE=uri;PREF=1;TYPE="voice,work":tel:+39-0444-109-5021
+EMAIL;TYPE=work:neil.e.kester.mil@army.mil
+EMAIL;TYPE=home:neilkester@yahoo.com
 ADR;WORK;PREF:;;Vicenza;Italy
-REV:1
+LANG;TYPE=home:en
+ROLE:Division Chief
+REV:2
 END:VCARD
