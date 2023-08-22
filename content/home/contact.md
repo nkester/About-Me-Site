@@ -62,7 +62,6 @@ content:
       icon_pack: fas
       name: Photo Portfolio
       link: https://photoportfolio.nkester.com/      
-    
 design:
   columns: '1'
 ---
