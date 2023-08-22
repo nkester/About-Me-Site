@@ -3,7 +3,9 @@ This little script can generate a valid .vcf (vCard). It will ask you to fill
 in some details and write the vcf-file.  
 
 vCard specifications are here: https://www.rfc-editor.org/rfc/rfc6350#section-6.2.1
+Excended specifications are here: https://www.ietf.org/archive/id/draft-george-vcarddav-vcard-extension-03.html
 Run this script with: 
+python3 makevcard.py
 """
 
 # Contact information
@@ -20,6 +22,8 @@ name_prefix = 'Mr.'
 name_suffix = 'PMP'
 work_phone = '+39-0444-109-5021'
 language_pref = 'en'
+linkedin = 'https://www.linkedin.com/in/neilkester'
+photo_portfolio = 'https://photoportfolio.nkester.com/'
 work_role = 'Division Chief'
 personal_url = 'https://about.nkester.com'
 photo_uri = 'https://www.about.nkester.com/uploads/vcard-photo.jpeg'
@@ -36,6 +40,8 @@ def make_vcard(
         company,
         title,
         personal_url,
+        linkedin,
+        photo_portfolio,
         work_phone,
         email_work,
         email_home,
@@ -54,12 +60,15 @@ def make_vcard(
         f'ORG:{company}',
         f'TITLE:{title}',
         f'URL:{personal_url}',
+        f'SOCIALPROFILE;type=linkedin:{linkedin}',
+        f'ALBUM;type=photo:{photo_portfolio}',
         f'TEL;VALUE=uri;PREF=1;TYPE="voice,work":tel:{work_phone}',
         f'EMAIL;TYPE=work:{email_work}',
         f'EMAIL;TYPE=home:{email_home}',
         f'ADR;WORK;PREF:;;{address_formatted}',
         f'LANG;TYPE=home:{language_pref}',
         f'ROLE:{work_role}',
+        f'UID:urn:uuid:q35e9nsu-neilkester22aug23-36h5-1l356-34l3r86i2do8',
         f'REV:2',
         'END:VCARD'
     ]
@@ -69,5 +78,5 @@ def write_vcard(f, vcard):
         f.writelines([l + '\n' for l in vcard])
 
 
-vcard = make_vcard(first_name,last_name,name_prefix,name_suffix,nickname,photo_uri,gender,company,title,personal_url,work_phone,email_work,email_home,language_pref,work_role,address)
+vcard = make_vcard(first_name,last_name,name_prefix,name_suffix,nickname,photo_uri,gender,company,title,personal_url,linkedin,photo_portfolio,work_phone,email_work,email_home,language_pref,work_role,address)
 write_vcard(vcf_file, vcard)
