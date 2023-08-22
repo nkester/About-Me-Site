@@ -42,15 +42,26 @@ content:
 #    - 'Wednesday 09:00 to 10:00'
   #appointment_url: 'https://calendly.com'
   contact_links:
-    - icon: briefcase
-      icon_pack: fas
-      name: Work Email
-      link: mailto:neil.e.kester.mil@army.mil
     - icon: address-card
       icon_pack: fas
       name: Download my vCard
       link: 'uploads/neil.vcf'
-
+    - icon: briefcase
+      icon_pack: fas
+      name: Work Email
+      link: mailto:neil.e.kester.mil@army.mil
+    - icon: house
+      icon_pack: fas
+      name: Personal Email
+      link: mailto:neilkester@yahoo.com
+    - icon: linkedin
+      icon_pack: fab
+      name: LinkedIn
+      link: https://www.linkedin.com/in/neilkester
+    - icon: images
+      icon_pack: fas
+      name: Photo Portfolio
+      link: https://photoportfolio.nkester.com/      
 design:
   columns: '1'
 ---

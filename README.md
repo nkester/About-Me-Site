@@ -177,6 +177,8 @@ Now we can serve the website as normal with `hugo serve --bind "0.0.0.0"`
 
 The "vendor" command allows you to see what the contents of your site look like. Executing `hugo mod vendor` pulls in all of the files in the imported modules and places them in the `_vendor` directory. We can delete this directory when we are done looking at it.  
 
+> **The hosted vCard**: I have provided a vCard (vcf file) in the `/static/uploads` directory. It is built by `makevcard.py` in the project's root directory. This does not re-build automatically so the python script needs to be re-run if changed. This does not, yet, pull from information in this site's `Contact` section but it should. If updating one, ensure to update the other until they are connected.  
+
 #### References:  
 
   * **VERY USEFUL** [Using Modules](https://www.hugofordevelopers.com/articles/master-hugo-modules-managing-themes-as-modules/)  
