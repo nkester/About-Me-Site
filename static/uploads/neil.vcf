@@ -1,6 +1,6 @@
 BEGIN:VCARD
 VERSION:4.0
-N:Kester;Neil;Mr.;PMP
+N:Kester;Neil;E;Mr.;PMP
 FN:Mr. Neil Kester\, PMP
 NICKNAME:Neil
 PHOTO:https://www.about.nkester.com/uploads/vcard-photo.jpeg
@@ -8,8 +8,8 @@ GENDER:M
 ORG:U.S. Army
 TITLE:Senior Operations Research / Systems Analyst
 URL:https://about.nkester.com
-SOCIALPROFILE;type=linkedin:https://www.linkedin.com/in/neilkester
-ALBUM;type=photo:https://photoportfolio.nkester.com/
+URL;type=linkedin:https://www.linkedin.com/in/neilkester
+URL;type=photo:https://photoportfolio.nkester.com/
 TEL;VALUE=uri;PREF=1;TYPE="voice,work":tel:+39-0444-109-5021
 EMAIL;TYPE=work:neil.e.kester.mil@army.mil
 EMAIL;TYPE=home:neilkester@yahoo.com

@@ -11,6 +11,7 @@ python3 makevcard.py
 # Contact information
 first_name = 'Neil'
 last_name = 'Kester'
+middle_initial = 'E'
 email_home = 'neilkester@yahoo.com'
 email_work = 'neil.e.kester.mil@army.mil'
 company = 'U.S. Army'
@@ -32,6 +33,7 @@ vcf_file = './static/uploads/neil.vcf'
 def make_vcard(
         first_name,
         last_name,
+        middle_initial,
         name_prefix,
         name_suffix,
         nickname,
@@ -52,16 +54,16 @@ def make_vcard(
     return [
         'BEGIN:VCARD',
         'VERSION:4.0',
-        f'N:{last_name};{first_name};{name_prefix};{name_suffix}', # Family Name, Given Name, Additional Names, Honorific Prefix, Honorific Suffix
-        f'FN:Mr. {first_name} {last_name}\, {name_suffix}', #Required, the name of the vCard object
+        f'N:{last_name};{first_name};{middle_initial};{name_prefix};{name_suffix}', # Family Name, Given Name, Additional Names, Honorific Prefix, Honorific Suffix
+        f'FN:{name_prefix} {first_name} {last_name}\, {name_suffix}', #Required, the name of the vCard object
         f'NICKNAME:{nickname}',
         f'PHOTO:{photo_uri}',
         f'GENDER:{gender}',
         f'ORG:{company}',
         f'TITLE:{title}',
         f'URL:{personal_url}',
-        f'SOCIALPROFILE;type=linkedin:{linkedin}',
-        f'ALBUM;type=photo:{photo_portfolio}',
+        f'URL;type=linkedin:{linkedin}',
+        f'URL;type=photo:{photo_portfolio}',
         f'TEL;VALUE=uri;PREF=1;TYPE="voice,work":tel:{work_phone}',
         f'EMAIL;TYPE=work:{email_work}',
         f'EMAIL;TYPE=home:{email_home}',
@@ -78,5 +80,5 @@ def write_vcard(f, vcard):
         f.writelines([l + '\n' for l in vcard])
 
 
-vcard = make_vcard(first_name,last_name,name_prefix,name_suffix,nickname,photo_uri,gender,company,title,personal_url,linkedin,photo_portfolio,work_phone,email_work,email_home,language_pref,work_role,address)
+vcard = make_vcard(first_name,last_name,middle_initial,name_prefix,name_suffix,nickname,photo_uri,gender,company,title,personal_url,linkedin,photo_portfolio,work_phone,email_work,email_home,language_pref,work_role,address)
 write_vcard(vcf_file, vcard)
