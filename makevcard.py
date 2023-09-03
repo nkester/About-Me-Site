@@ -22,6 +22,7 @@ nickname = 'Neil'
 name_prefix = 'Mr.'
 name_suffix = 'PMP'
 work_phone = '+39-0444-109-5021'
+whats_app = '+39-347-295-4856'
 language_pref = 'en'
 linkedin = 'https://www.linkedin.com/in/neilkester'
 photo_portfolio = 'https://photoportfolio.nkester.com/'
@@ -45,6 +46,7 @@ def make_vcard(
         linkedin,
         photo_portfolio,
         work_phone,
+        whats_app,
         email_work,
         email_home,
         language_pref,
@@ -64,7 +66,8 @@ def make_vcard(
         f'URL:{personal_url}',
         f'URL;type=linkedin:{linkedin}',
         f'URL;type=photo:{photo_portfolio}',
-        f'TEL;VALUE=uri;PREF=1;TYPE="voice,work":tel:{work_phone}',
+        f'TEL;VALUE=uri;PREF=2;TYPE="voice,work":tel:{work_phone}',
+        f'TEL;VALUE=uri;PREF=1;TYPE="voice,home":tel:{whats_app}',
         f'EMAIL;TYPE=work:{email_work}',
         f'EMAIL;TYPE=home:{email_home}',
         f'ADR;WORK;PREF:;;{address_formatted}',
@@ -80,5 +83,5 @@ def write_vcard(f, vcard):
         f.writelines([l + '\n' for l in vcard])
 
 
-vcard = make_vcard(first_name,last_name,middle_initial,name_prefix,name_suffix,nickname,photo_uri,gender,company,title,personal_url,linkedin,photo_portfolio,work_phone,email_work,email_home,language_pref,work_role,address)
+vcard = make_vcard(first_name,last_name,middle_initial,name_prefix,name_suffix,nickname,photo_uri,gender,company,title,personal_url,linkedin,photo_portfolio,work_phone,whats_app,email_work,email_home,language_pref,work_role,address)
 write_vcard(vcf_file, vcard)

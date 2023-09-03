@@ -26,7 +26,7 @@ content:
 #      captcha: false
 
   # Contact details (edit or remove options as required)
-  email: neilkester@yahoo.com
+ # email: neilkester@yahoo.com
   address:
     city: Vicenza
     region: PD
@@ -46,6 +46,9 @@ content:
       icon_pack: fas
       name: Download my vCard
       link: 'uploads/neil.vcf'
+    - icon: whatsapp
+      icon_pack: fab
+      name: 'WhatsApp: +39 347 295 4856'
     - icon: briefcase
       icon_pack: fas
       name: Work Email
