@@ -20,6 +20,10 @@ links:
     icon_pack: fab
     name: Code
     url: https://github.com/nkester/Kester-Weather-Station
+  - icon: github
+    icon_pack: fab
+    name: Viz
+    url: /uploads/sites/WeatherStation.html
 url_code: ''
 url_pdf: ''
 url_slides: ''
