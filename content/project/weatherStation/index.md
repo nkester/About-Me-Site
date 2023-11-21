@@ -18,8 +18,16 @@ image:
 links:
   - icon: github
     icon_pack: fab
-    name: Code
+    name: Project Config Code
     url: https://github.com/nkester/Kester-Weather-Station
+  - icon: chart-line
+    icon_pack: fas
+    name: Weather Visualization Site
+    url: https://www.kesterweather.nkester.com/
+  - icon: github
+    icon_pack: fab
+    name: Visualization Code
+    url: https://github.com/nkester/Kester-Weather-Visualization-Site
 url_code: ''
 url_pdf: ''
 url_slides: ''
