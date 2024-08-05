@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Neil Kester
+title: Neil Kester, PMP, DASSM
 
 # Is this the primary user of the site?
 superuser: true
@@ -19,7 +19,7 @@ bio: My research interests include value focused decision support, machine intel
 # Interests to show in About widget
 interests:
   - Value Focused Decision Support
-  - Machine Intelligence to Human Decision Making
+  - Machine Intelligence Support to Human Decision Making
   - Analytic Modeling and Simulations
   - Container Based Data Science Workloads
 
@@ -77,7 +77,7 @@ highlight_name: true
 ---
 
 **What defines my professional life, what is my professional "why":** I strive to bring clarity to problems and provide actionable approaches to help our leaders make informed decisions. 
-  - The context: Our national security, local government, and business leaders face increasingly complex and complicated problems. These are frustrated by unclear or unintuitive solutions. I strive to help them make sense of this environment to better themselves, their constituents (and customers), and society.
+  - The context: Our national security, local government, and business leaders face increasingly complex and complicated problems. Unclear or unintuitive solutions compound these problems. I strive to help leaders make sense of this environment to better themselves, their constituents (and customers), and our society.
   
 **My How:** Through self work and leading cross functional teams, I apply the following methods and techniques:  
   - Remain ruthlessly focused on providing value to the customer or decision maker. Novel solutions only matter if they are usefull and valuable to the user.  
