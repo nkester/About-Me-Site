@@ -27,7 +27,10 @@ experience:
     location: Italy
     date_start: '2022-08-01'
     date_end: ''
-    description: ''
+    description: |
+      Responsibilities include:
+
+      * Leading and supervising a six person team of civilian and military Operations Researchers and Program Analysts. 
 
   - title: Senior Data Scientist / Senior Software Project Manager (Operations Research / Systems Analyst)
     company: Command Data Office, U.S. Special Operations Command

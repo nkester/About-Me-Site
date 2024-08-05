@@ -31,7 +31,7 @@ feature:
   - name: "**Modeling and Simulation** - Intermediate"
     icon: gears
     icon_pack: fas
-    description: "Descrete Event Simulation (Combat Simulation and Logistics Simulation) and Epidemiological Simulation (SEIR) in traditional \"Monolithic\" systems as well as descributed cloud based systems.  \n _Icon by fontawesome.com_"
+    description: "Descrete Event Simulation (Combat Simulation and Logistics Simulation) and Epidemiological Simulation (SEIR) in traditional \"Monolithic\" systems as well as destributed cloud based systems.  \n _Icon by fontawesome.com_"
   - name: "**Containerization and Kubernetes** - Intermediate"
     icon: docker
     icon_pack: fab
