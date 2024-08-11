@@ -36,6 +36,8 @@ content:
       tag: Raspberry Pi
     - name: Home Projects
       tag: Home Projects
+    - name: Analytic Projects
+      tag: analytics
 
 design:
   # Choose how many columns the section has. Valid values: '1' or '2'.
