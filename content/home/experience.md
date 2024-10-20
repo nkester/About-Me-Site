@@ -81,12 +81,12 @@ experience:
     company: U.S. Army Corps of Engineers (USACE), Seattle District
     location: Washington
     date_start: '2012-10-01'
-    date_end: '2013-06-01'
+    date_end: '2014-06-01'
     description: |
       Responsibilities include:  
 
-      * Indentifying, coordinating, and integrating customer requirements into a comprehensive management plan, coordinated with stakeholders.  
-      * On the project site controling and managing the budget and schedule of a $91 million dollar construction project. 
+      * Identifying, coordinating, and integrating customer requirements into a comprehensive management plan, coordinated with stakeholders.  
+      * On the project site controlling and managing the budget and schedule of a $91 million dollar construction project. 
 
   - title: Department Director (Combat Engineer Company Commander)
     company: C Company, 40th Engineer Battalion, 170th Infantry Brigade Combat Team
@@ -96,7 +96,7 @@ experience:
     description: |
       Responsibilities include:  
 
-      * Managing the life, well-being, and operational employment of 120 individuals organized into four teams while operating in hostile enivironments across approximately 3600 square km of area.  
+      * Managing the life, well-being, and operational employment of 120 individuals organized into four teams while operating in hostile environments across approximately 3600 square km of area.  
       * Managing the maintenance, accountability, operational readiness, and employment of 41 heavy duty vehicles and associated operational equipment valued in excess of $31 million.
 
   - title: Department Deputy Director of Operations (Combat Engineer Battalion Assistance Operations Officer)
@@ -107,11 +107,11 @@ experience:
     description: |
       Responsibilities include:  
 
-      * Future operations planning for a 600 person department that required coordinating with other deputy directors and their suborinates across the department's staff.  
+      * Future operations planning for a 600 person department that required coordinating with other deputy directors and their subordinates across the department's staff.  
       * Coordinating that resources were available when and where they were needed to support the department's operations.
 
   - title: Department Deputy Director of Protection (Combined Arms Battalion Engineer)
-    company: 2-12 Cavalry, 1st Calvalry Division
+    company: 2-12 Cavalry, 1st Cavalry Division
     location: Texas / Iraq
     date_start: '2008-04-01'
     date_end: '2009-04-01'
@@ -130,7 +130,7 @@ experience:
     description: |
       Responsibilities include:  
 
-      * Second in charge of a 80 person deparment, organized into three teams.
+      * Second in charge of a 80 person department, organized into three teams.
       * Implementing and caring for the training, welfare, discipline, and professional development of employees in the division.
       * The Department's Maintenance and Logistics Manager, responsible for providing logistics to support the department's operations. This included supporting more than 29 heavy duty vehicles and associated operational equipment valued in excess of $20 million.  
       * Serves as the subject matter expert on employing the division's specific operational capabilities to upper management.

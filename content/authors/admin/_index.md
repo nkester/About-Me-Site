@@ -61,7 +61,7 @@ social:
     link: https://www.linkedin.com/in/neilkester
   - icon: cv
     icon_pack: ai
-    link: uploads/cv.pdf
+    link: uploads/cv/my_cv.html #uploads/cv.pdf
   - icon: flickr
     icon_pack: fab
     link: https://www.flickr.com/people/105429276@N05/    
