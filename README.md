@@ -29,6 +29,14 @@ Below is a table of contents for items in both sections:
 
 ## Site Content  
 
+### Curricullum Vitae (CV)
+
+My Curricullum Vitae is a longer, more detailed document as compared to my resume. The source information for my CV lives within my [github profile](https://github.com/nkester).
+
+### Resume  
+
+Currently, the resume I show in this website comes from my LinkedIn profile. I will change this to a custom made file in the future.
+
 ## Site Deployment  
 
 ### Container Image  
