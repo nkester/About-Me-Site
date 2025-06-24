@@ -28,14 +28,14 @@ content:
   # Contact details (edit or remove options as required)
  # email: neilkester@yahoo.com
   address:
-    city: Vicenza
-    region: PD
-    postcode: '35010'
-    country: Italy
-    country_code: IT
+    city: Richmond
+    region: VA
+    postcode: '23219'
+    country: USA
+    country_code: US
   coordinates:
-    latitude: '45.54672'
-    longitude: '11.5475'
+    latitude: '37.536361'
+    longitude: '77.463139'
 #  directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
 #  office_hours:
 #    - 'Monday 10:00 to 13:00'
