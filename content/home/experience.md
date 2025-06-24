@@ -22,15 +22,33 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Department Director - Assessments Director (Operations Research / Systems Analyst)
+  - title: Department Director - University Department of Operations Sciences (Division Chief - Army Sustainment University Division of Operations Sciences)
+    company: U.S. Army Sustainment University (ASU), Department of Applied Logistics and Operations Sciences (DALOS)
+    location: Virginia
+    date_start: '2025-07-15'
+    date_end: ''
+    description: |
+      Responsibilities include:  
+
+      * Leading and supervising military and civlian instructors.
+      * Leading teams to deliver top quality training and education in support of the Army's Operations Research / Systems Analyst initial and mid-level professional development program and developing the Army Sustainment Community's data analysis and visualization training and education program.
+  
+  - title: Department Director - Assessments and Analysis Director (Operations Research / Systems Analyst)
     company: Southern European Task Force - Africa (SETAF-AF)
     location: Italy
     date_start: '2022-08-01'
-    date_end: ''
+    date_end: '2025-07-15'
     description: |
       Responsibilities include:
 
       * Leading and supervising a six person team of civilian and military Operations Researchers and Program Analysts. 
+      * Organized around project work, led teams to employ Systems Thinking to develop inovative and comprehensive solutions to complex problems within the domains of: 
+        * Resource Management
+        * Operations Planning
+        * Business Process Improvement
+        * Value Tradeoff Analysis
+        * Business Plan Effectiveness Assessments
+      * Manage agile and self motivated teams through lean management practices that focused on delivering business value, making work and work flows visible, and encouraging collaboration in government.
 
   - title: Senior Data Scientist / Senior Software Project Manager (Operations Research / Systems Analyst)
     company: Command Data Office, U.S. Special Operations Command
