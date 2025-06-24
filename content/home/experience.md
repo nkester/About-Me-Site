@@ -31,7 +31,7 @@ experience:
       Responsibilities include:  
 
       * Leading and supervising military and civlian instructors.
-      * Leading teams to deliver top quality training and education in support of the Army's Operations Research / Systems Analyst initial and mid-level professional development program and developing the Army Sustainment Community's data analysis and visualization training and education program.
+      * Leading teams to deliver top quality training and education in support of the Army's Operations Research / Systems Analysis Functional Area (FA49) initial and mid-level professional development program and developing the Army Sustainment Community's data analysis and visualization training and education program.
   
   - title: Department Director - Assessments and Analysis Director (Operations Research / Systems Analyst)
     company: Southern European Task Force - Africa (SETAF-AF)
@@ -42,13 +42,13 @@ experience:
       Responsibilities include:
 
       * Leading and supervising a six person team of civilian and military Operations Researchers and Program Analysts. 
-      * Organized around project work, led teams to employ Systems Thinking to develop inovative and comprehensive solutions to complex problems within the domains of: 
+      * Organized around project work, I led teams to employ Systems Thinking to develop innovative and comprehensive solutions to complex problems within the domains of: 
         * Resource Management
         * Operations Planning
         * Business Process Improvement
         * Value Tradeoff Analysis
         * Business Plan Effectiveness Assessments
-      * Manage agile and self motivated teams through lean management practices that focused on delivering business value, making work and work flows visible, and encouraging collaboration in government.
+      * Managing agile and self motivated teams through lean management practices that focused on delivering business value, making work and work flows visible, and encouraging collaboration in government.
 
   - title: Senior Data Scientist / Senior Software Project Manager (Operations Research / Systems Analyst)
     company: Command Data Office, U.S. Special Operations Command
@@ -58,10 +58,10 @@ experience:
     description: |
       Responsibilities include:  
 
-      * Lead highly technical teams of software developers, data scientists, and data architects using Agile Project Management techniques to deliver capabilities to customers across the organization's world wide foot print.  
-      * Employ data science, data analytics, and operations research techniques to identify, ingest, transform, model, visualize, and communicate responses to complicated and nuanced questions.  
-      * Lead teams to discover and implement technical capabilities empowering users across a geographically diverse organization to employ data science and data analytics to inform senior leader decisions. 
-      * Serve as a knowledge broker to communicate requirements for data science work loads for others in the command.    
+      * Leading highly technical teams of software developers, data scientists, and data architects using Agile Project Management techniques to deliver capabilities to customers across the organization's world wide foot print.  
+      * Employing data science, data analytics, and operations research techniques to identify, ingest, transform, model, visualize, and communicate responses to complicated and nuanced questions.  
+      * Leading teams to discover and implement technical capabilities empowering users across a geographically diverse organization to employ data science and data analytics to inform senior leader decisions. 
+      * Serving as a knowledge broker to communicate requirements of data science work loads for others in the command.    
 
   - title: Resource Analyst & Data Scientist (Operations Research / Systems Analyst)
     company: Center for Army Analysis
@@ -71,8 +71,8 @@ experience:
     description: |
       Responsibilities include:  
 
-      * Supporting senior leaders of a 1,000,000 + employee organization, lead and participate in studies related to the employment of materiel and personnel resources within the context of external geo-polical environments and national defense.  
-      * Communicate the planning, progress, and results of said studies to C Suite executives to inform future funding, resourcing, and employment decisions.  
+      * Supporting senior leaders of a 1,000,000 + employee organization, leading and participating in studies related to the employment of materiel and personnel resources within the context of external geo-polical environments and national defense.  
+      * Communicating the planning, progress, and results of said studies to C Suite executives to inform future funding, resourcing, and employment decisions.  
     
   - title: Materials and Product Effectiveness Analyst (Weapons Systems Analyst - Operations Research / Systems Analyst)
     company: U.S. Army Materiel Systems Analysis Activity
@@ -82,8 +82,8 @@ experience:
     description: |
       Responsibilities include:  
 
-      * Analyze single soldier or weapon system performance in the context of its intended employment situations to inform decisions on the system's acquisition and use.  
-      * Perform basic research level analysis to determine the qualities and capabilities systems must posses to achieve intended results.
+      * Analyzing single soldier or weapon system performance in the context of its intended employment situations to inform decisions on the system's acquisition and use.  
+      * Performing basic research level analysis to determine the qualities and capabilities systems must posses to achieve intended results.
     
   - title: Construction Project Manager
     company: U.S. Army Corps of Engineers (USACE), Seattle District
