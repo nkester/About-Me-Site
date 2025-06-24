@@ -45,7 +45,7 @@ footer:
   copyright:
     notice: |
      <p> © {year} Neil Kester. This work is licensed under {license}. </p>
-     <p> Version 1.1.4, Published 10 August 2024 </p>
+     <p> Version 1.1.6, Published 25 June 2025 </p>
     license:
       enable: true
       allow_derivatives: false
