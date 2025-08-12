@@ -48,7 +48,7 @@ content:
       link: 'uploads/neil.vcf'
     - icon: whatsapp
       icon_pack: fab
-      name: 'WhatsApp: +39 347 295 4856'
+      name: 'WhatsApp: +1 804 245 0085'
     - icon: briefcase
       icon_pack: fas
       name: Work Email
