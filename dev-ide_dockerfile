@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/nkester-personal-cloud/containers/linuxserver-vscode/temp:latest
+FROM registry.gitlab.com/nkester-personal-cloud/containers/linuxserver-vscode/base:latest
 MAINTAINER Neil Kester <kesterne1@gmail.com>
 
 ENV HUGO_VERSION 0.100.2
