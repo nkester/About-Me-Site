@@ -107,7 +107,7 @@ I used the VSCode container I normally develop in for this purpose as well. In o
 
 My base VS Code container image does not include the Google firebase, Hugo, and GoLang dependencies required to develop this site. To support local development I've extended my base VS Code container image using the `dev-ide_dockerfile`. This is simply the same dockerfile specifications as is used to build and deploy the site but I use my VS Code container as the base.  
 
-Additionally, I save container image to this project's container registry through the `.gitlab-ci.yaml` specification to the `registry.gitlab.com/nkester/about-me-site/dev_ide` container registry. 
+Additionally, I save container image to this project's container registry through the `.gitlab-ci.yaml` specification to the `registry.gitlab.com/nkester/about-me-site/dev_ide` container registry. **Note:** In order to have the permissions to pull this container, add this project to my `linuxserver-vscode` "CI/CD job token allowlist.
 
 Run this container image with the additional ports exposed with the following `podman` command.  
 
