@@ -111,7 +111,7 @@ Additionally, I save container image to this project's container registry throug
 
 Run this container image with the additional ports exposed with the following `podman` command.  
 
-` podman run --rm -d -p 8083:8443 -p 1313:1313 -e PUID=1000 -e PGID=1000 -e TZ=America/New_York -e PASSWORD=mypass -e SUDO_PASSWORD=mypass -v neil-work:/config --name hugo registry.gitlab.com/nkester/about-me-site/dev_ide:develop`  
+` podman run --rm -d -p 8083:3000 -p 1313:1313 -e PUID=1000 -e PGID=1000 -e TZ=Etc/UTC+5 -e PASSWORD=mypass -e SUDO_PASSWORD=mypass -v neil-work:/config --name hugo registry.gitlab.com/nkester/about-me-site/dev_ide:develop`  
 
 #### Serve the New Site Locally 
 
