@@ -25,8 +25,15 @@ date_format: Jan 2006
 #   Leave other parameters empty if not required.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 item:
+  - certificate_url: 'https://www.credly.com/badges/60574afc-8a03-4448-bb6f-36fa47c448ef'
+    date_end: '2028-12-12'
+    date_start: '2025-12-12'
+    description: "A Generative AI Leader is a visionary professional with comprehensive knowledge of how gen AI can transform businesses. They have business-level knowledge of Google Cloud's gen AI offerings and understand how Google's AI-first approach can lead organizations toward innovative and responsible AI adoption. They influence gen AI-powered initiatives and identify opportunities across business functions and industries, using Google Cloud's enterprise-ready offerings to accelerate innovation."
+    organization: Google Cloud
+    organization_url: https://cloud.google.com/
+    title: Generative AI Leader Certification
   - certificate_url: 'https://www.credly.com/badges/5de1ddaf-a3ac-496c-934f-6da6972cb82e/public_url'
-    date_end: ''
+    date_end: '2027-07-23'
     date_start: '2024-07-24'
     description: Disciplined Agile Senior Scrum Masters have been formally evaluated on how to choose, scale, and tailor their Way of Working (WoW) to achieve agile success in any situation. They are positioned to successfully lead an agile team (or multiple teams) and effectively take on more complex and key initiatives for their organization.
     organization: Project Management Institute (PMI)
@@ -37,11 +44,11 @@ item:
     date_start: '2022-02-01'
     description: 'Udacity Nanodegree program'
     organization: Udacity
-    organization_url: https://www.udacity.org
+    organization_url: https://www.udacity.com/course/intro-to-machine-learning-with-tensorflow-nanodegree--nd230
     title: Introduction to Machine Learning with TensorFlow
-    url: ''
+    description: "Build powerful machine learning models to predict outcomes and uncover insights using data. This Nanodegree covers foundational supervised learning techniques like linear regression, decision trees, Naive Bayes, SVMs, and perceptrons."
   - certificate_url: 'https://www.credly.com/badges/24b244cd-2828-4aa5-9cac-20a9ff68bf38/public_url'
-    date_end: ''
+    date_end: '2029-03-06'
     date_start: '2014-03-01'
     description: Individuals that earn this certification have demonstrated the knowledge and skills needed to initiate, plan, execute, monitor and control, and close a project.
     organization: Project Management Institute (PMI)
