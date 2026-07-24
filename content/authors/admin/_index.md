@@ -41,30 +41,27 @@ education:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "/#contact" for contact widget.
 social:
-  - icon: envelope
+  - icon: address-card
     icon_pack: fas
     link: '/#contact'
-#  - icon: twitter
-#    icon_pack: fab
-#    link: https://twitter.com/GeorgeCushen
-  - icon: google-scholar
-    icon_pack: ai
-    link: https://scholar.google.com/citations?user=b6EsVyQAAAAJ&hl=en&oi=ao
-  - icon: github
-    icon_pack: fab
-    link: https://github.com/nkester
-  - icon: gitlab
-    icon_pack: fab
-    link: https://gitlab.com/nkester
   - icon: linkedin
     icon_pack: fab
     link: https://www.linkedin.com/in/neilkester
+  - icon: github
+    icon_pack: fab
+    link: https://github.com/nkester
+  - icon: certificate
+    icon_pack: fab
+    link: https://www.credly.com/users/neil-kester/badges/credly
+  - icon: file-lines
+    icon_pack: fab
+    link: uploads/resume.pdf
+  - icon: google-scholar
+    icon_pack: ai
+    link: https://scholar.google.com/citations?user=b6EsVyQAAAAJ&hl=en&oi=ao
   - icon: cv
     icon_pack: ai
     link: uploads/cv/my_cv.html #uploads/cv.pdf
-  - icon: flickr
-    icon_pack: fab
-    link: https://www.flickr.com/people/105429276@N05/    
   - icon: images
     icon_pack: fas
     link: https://photoportfolio.nkester.com/
@@ -76,18 +73,4 @@ email: 'neilkester@yahoo.com'
 highlight_name: true
 ---
 
-**What defines my professional life, what is my professional "why":** I strive to bring clarity to problems and provide actionable approaches to help our leaders make informed decisions. 
-  - The context: Our national security, local government, and business leaders face increasingly complex and complicated problems. Unclear or unintuitive solutions compound these problems. I strive to help leaders make sense of this environment to better themselves, their constituents (and customers), and our society.
-  
-**My How:** Through self work and leading cross functional teams, I apply the following methods and techniques:  
-  - Remain ruthlessly focused on providing value to the customer or decision maker. Novel solutions only matter if they are usefull and valuable to the user.  
-  - Ask pointed questions to help myself, my team, and the decision maker develop and understand the problem.
-  - Apply Disciplined Agile practices to guide the problem solving process and deliver value.
-  - Acknowledge the things we don't or can not know, and account for them in our analysis.  
-  - Simplicity and explainability always trump complex and convoluted. 
-  - Apply Operations Research and Systems Analysis techiques that span the spectrum from Operational Assessments, Systems Engineering, Economics, and Data Science.
-  
-
-I excel at achieving desired effects with minimal guidance and oversight in environments that demand self-motivated leadership.
-
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+As a certified Project Management Professional and Scrum Master with a BS in Civil Engineering and an MS in Systems Engineering, I am focused on providing customers with data driven analysis to support their decision cycle. I have over 12 years’ experience building data solutions and interactive tools in R and SQL that have generated acclaim and recognition from C-Suite level decision makers. Over the last decade as a data scientist, my evaluations have consistently placed me in the top 10 percent of my peers, earning me early promotions and advanced job placement. I have led multiple full stack analytic development teams to deliver value to customers through highly technical solutions on time and exceeding expectations through the application of the software development lifecycle and Agile Software Development approaches. Experienced with both AWS and GCP, as well as secured Kubernetes platforms like RedHat’s OpenShift, I understand cloud architecture, open-source frameworks, and Software Systems Engineering. Consistently hungry to learn more, I actively pursue additional certifications and independent technical projects to ensure I am prepared to provide value to my customers’ future needs.
