@@ -51,10 +51,10 @@ social:
     icon_pack: fab
     link: https://github.com/nkester
   - icon: certificate
-    icon_pack: fab
+    icon_pack: fas
     link: https://www.credly.com/users/neil-kester/badges/credly
   - icon: file-lines
-    icon_pack: fab
+    icon_pack: fas
     link: uploads/resume.pdf
   - icon: google-scholar
     icon_pack: ai
